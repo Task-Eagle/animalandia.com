@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animalandia | Sovereign Jaguar Profile</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Fredoka:wght@600&display=swap" rel="stylesheet">
+    
+    <!-- MathJax Config & Script -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <style>
+        /* --- Design Tokens / Theme Palette --- */
+        :root {
+            --jungle-green: #2e7d32d8;
+            --safari-gold: #FFC107;
+            --forest-dark: #1b5e1f;
+            --cream-light: #FFF8E1;
+            --text-dark: #212121;
+            --text-light: #ffffff;
+            --card-bg: #ffffff;
+            /* Custom Jaguar Specific Trait Color */
+            --jaguar-amber: #e65100;
+            --jaguar-dark-spots: #3e2723;
+            --near-threatened: #ff9100;
+            --shadow-sm: 0 4px 6px rgba(0,0,0,0.05);
+            --shadow-md: 0 8px 16px rgba(0,0,0,0.1);
+        }
+
+        /* --- Reset & Core Layout --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--cream-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Fredoka', sans-serif;
+            color: var(--forest-dark);
+        }
+
+        /* --- Sticky Navigation --- */
+        nav {
+            background: linear-gradient(135deg, var(--jungle-green), var(--forest-dark));
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+        }
+
+        .logo-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: 2px solid var(--safari-gold);
+            animation: pulse 2.5s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .logo-text {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--text-light);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--safari-gold);
+        }
+
+        /* Dropdown Menu */
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: var(--card-bg);
+            min-width: 200px;
+            box-shadow: var(--shadow-md);
+            z-index: 10;
+            border-radius: 8px;
+            overflow: hidden;
+            top: 100%;
+            left: 0;
+            margin-top: 0.5rem;
+            border-top: 4px solid var(--safari-gold);
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content a {
+            color: var(--text-dark);
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .dropdown-content a:hover {
+            background-color: var(--cream-light);
+            color: var(--forest-dark);
+        }
+
+        /* --- Immersive Hero Banner --- */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.65)), 
+                        url('https://images.unsplash.com/photo-1574068468668-a05a11f871da?auto=format&fit=crop&w=1600&q=80') no-repeat center/cover;
+            height: 480px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--text-light);
+            border-bottom: 6px solid var(--safari-gold);
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 0 1.5rem;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            color: var(--safari-gold);
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.6);
+            margin-bottom: 0.5rem;
+            letter-spacing: 2px;
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+            font-weight: 600;
+            color: var(--cream-light);
+        }
+
+        /* --- Main Layout Grid --- */
+        main {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 1.5rem;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2.5rem;
+        }
+
+        /* --- Left Column Content (Article) --- */
+        article {
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
+        }
+
+        .content-section {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 2.5rem;
+            box-shadow: var(--shadow-sm);
+            border-left: 6px solid var(--jaguar-amber);
+        }
+
+        .badge-list {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
+        }
+
+        .badge {
+            background-color: var(--cream-light);
+            color: var(--jaguar-amber);
+            border: 1.5px solid var(--jaguar-amber);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+        }
+
+        .content-section h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1.2rem;
+            color: var(--forest-dark);
+        }
+
+        .content-section p {
+            font-size: 1.1rem;
+            color: #4a4a4a;
+            margin-bottom: 1.2rem;
+            line-height: 1.7;
+        }
+
+        /* 4 Metrics Infobox Grid */
+        .infobox-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.25rem;
+            margin-top: 2rem;
+        }
+
+        .infobox-item {
+            background-color: #fafdfa;
+            border: 1px solid #e0efe0;
+            padding: 1.2rem;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            transition: transform 0.2s;
+        }
+
+        .infobox-item:hover {
+            transform: translateY(-2px);
+        }
+
+        .infobox-icon {
+            font-size: 2.5rem;
+        }
+
+        .infobox-text h4 {
+            font-size: 0.9rem;
+            color: #757575;
+            text-transform: uppercase;
+        }
+
+        .infobox-text p {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--forest-dark);
+            margin: 0;
+        }
+
+        /* Trivia Grid */
+        .facts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .fact-card {
+            background-color: #fffaf0;
+            border: 1.5px solid #ffe8cc;
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .fact-card:hover {
+            transform: scale(1.03);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .fact-emoji {
+            font-size: 2.5rem;
+            margin-bottom: 0.75rem;
+            display: block;
+        }
+
+        .fact-card p {
+            font-size: 0.95rem;
+            color: #5d4037;
+            margin: 0;
+        }
+
+        /* --- Right Column Content (Aside) --- */
+        aside {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .aside-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: var(--shadow-sm);
+            border-top: 5px solid var(--jungle-green);
+        }
+
+        .aside-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1.2rem;
+            border-bottom: 2px solid var(--cream-light);
+            padding-bottom: 0.5rem;
+        }
+
+        /* Taxonomy Table */
+        .taxonomy-list {
+            list-style: none;
+        }
+
+        .taxonomy-list li {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.6rem 0;
+            border-bottom: 1px dashed #efefef;
+            font-size: 0.9rem;
+        }
+
+        .taxonomy-list li:last-child {
+            border-bottom: none;
+        }
+
+        .taxonomy-list strong {
+            color: #757575;
+        }
+
+        .taxonomy-list span {
+            font-weight: 600;
+            color: var(--forest-dark);
+        }
+
+        /* Quick Profile Styling */
+        .profile-list {
+            list-style: none;
+        }
+
+        .profile-list li {
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .profile-list li:last-child {
+            margin-bottom: 0;
+        }
+
+        .profile-list strong {
+            display: block;
+            color: #757575;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            margin-bottom: 0.15rem;
+        }
+
+        .profile-list span {
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .status-badge {
+            display: inline-block;
+            background-color: var(--near-threatened);
+            color: var(--text-light);
+            padding: 0.2rem 0.6rem;
+            font-size: 0.8rem;
+            font-weight: 700;
+            border-radius: 10px;
+            text-transform: uppercase;
+        }
+
+        /* --- Footer --- */
+        footer {
+            background: var(--forest-dark);
+            color: var(--text-light);
+            padding: 3.5rem 1.5rem;
+            margin-top: 5rem;
+            border-top: 5px solid var(--safari-gold);
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .footer-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .footer-info h4 {
+            color: var(--safari-gold);
+            font-size: 1.8rem;
+        }
+
+        .footer-info p {
+            color: #b9dbba;
+            font-size: 0.95rem;
+        }
+
+        .footer-info a {
+            color: var(--safari-gold);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        /* Stylized Interactive-looking feedback form */
+        .footer-form {
+            background: rgba(255, 255, 255, 0.08);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: var(--shadow-md);
+        }
+
+        .footer-form h4 {
+            color: var(--text-light);
+            margin-bottom: 1rem;
+            font-size: 1.25rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.25rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.4rem;
+            font-size: 0.85rem;
+            color: #b9dbba;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--text-light);
+            font-family: inherit;
+            font-size: 0.95rem;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: #a5cca6;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: var(--safari-gold);
+        }
+
+        .form-btn {
+            background: var(--safari-gold);
+            color: var(--forest-dark);
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s;
+            width: 100%;
+            font-family: inherit;
+            font-size: 1rem;
+        }
+
+        .form-btn:hover {
+            background: #FFD54F;
+            transform: translateY(-1px);
+        }
+
+        .copyright-bar {
+            text-align: center;
+            padding-top: 2rem;
+            margin-top: 3rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.85rem;
+            color: #a5cca6;
+        }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 900px) {
+            main {
+                grid-template-columns: 1fr;
+            }
+            .hero h1 {
+                font-size: 3rem;
+            }
+            .hero p {
+                font-size: 1.15rem;
+            }
+            .footer-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+
+        @media (max-width: 550px) {
+            .infobox-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Sticky Navigation Ribbon -->
+    <nav>
+        <div class="nav-container">
+            <a href="../index.html" class="logo">
+                <img src="https://images.unsplash.com/photo-1546182990-dffeafbe841d?auto=format&fit=crop&w=100&q=80" alt="Animalandia Logo" class="logo-img">
+                <span class="logo-text">Animalandia</span>
+            </a>
+            
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li class="dropdown">
+                    <a href="#">Categories ▾</a>
+                    <div class="dropdown-content">
+                        <a href="../categories/big-cats.html">Big Cats</a>
+                        <a href="../categories/felines.html">Felines</a>
+                        <a href="../categories/canines.html">Canines</a>
+                        <a href="../categories/birds.html">Birds</a>
+                        <a href="../categories/reptiles.html">Reptiles</a>
+                    </div>
+                </li>
+                <li><a href="#">Stories</a></li>
+                <li><a href="#">About</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Immersive Hero Banner -->
+    <header class="hero">
+        <div class="hero-content">
+            <h1>The Jaguar</h1>
+            <p>Panthera onca • Mighty Lord of the Flooded Rainforests</p>
+        </div>
+    </header>
+
+    <!-- Main Content Area with 2fr 1fr Grid -->
+    <main>
+        
+        <!-- Left Column: Primary Educational Material -->
+        <article>
+            
+            <!-- Intro Card -->
+            <section class="content-section">
+                <div class="badge-list">
+                    <span class="badge">Apex Predator</span>
+                    <span class="badge">Master Swimmer</span>
+                    <span class="badge">Keystone Species</span>
+                </div>
+                <h2>The Sovereign of the Americas</h2>
+                <p>Welcome, brave explorers! Today, we dive deep into the dense, flooded forests of the Amazon Basin to track the largest cat species in the Western Hemisphere: the **Jaguar**. Shrouded in ancient mythology and revered by ancient civilizations like the Mayans and Aztecs as symbols of strength and divinity, the jaguar is a true crown jewel of biodiversity.</p>
+                <p>While jaguars look quite similar to leopards, they are much sturdier, heavily muscled, and possess unique behaviors that set them apart. Unlike most common household felines, the jaguar does not fear water—in fact, it absolutely loves it!</p>
+
+                <!-- 4 Metrics Infobox Grid (LaTeX formatted) -->
+                <div class="infobox-grid">
+                    <div class="infobox-item">
+                        <span class="infobox-icon">⚖️</span>
+                        <div class="infobox-text">
+                            <h4>Average Weight</h4>
+                            <p>$56\text{ kg}$ to $113\text{ kg}$</p>
+                        </div>
+                    </div>
+                    <div class="infobox-item">
+                        <span class="infobox-icon">⚡</span>
+                        <div class="infobox-text">
+                            <h4>Top Running Speed</h4>
+                            <p>$80\text{ km/h}$</p>
+                        </div>
+                    </div>
+                    <div class="infobox-item">
+                        <span class="infobox-icon">📏</span>
+                        <div class="infobox-text">
+                            <h4>Body Length</h4>
+                            <p>$1.2\text{ m}$ to $1.9\text{ m}$</p>
+                        </div>
+                    </div>
+                    <div class="infobox-item">
+                        <span class="infobox-icon">⏳</span>
+                        <div class="infobox-text">
+                            <h4>Lifespan (Wild)</h4>
+                            <p>$12\text{ to }15\text{ years}$</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Adaptive Life Section -->
+            <section class="content-section">
+                <h2>Adaptive Life & Survival Strategies</h2>
+                <p>Jaguars are highly adaptable, solitary creatures. Their home ranges center heavily around slow-moving rivers, swamps, and dense cover where they can easily ambuscade prey. They are superb, muscular swimmers capable of crossing rivers that are several miles wide to hunt or search for territories.</p>
+                <p>As solitary hunters, they communicate through vocalizations called <strong>"hoofs"</strong> and deep guttural roars. They establish vast territories, marking trees with their long claws and leaving scent warnings to tell other travelers to stay clear.</p>
+            </section>
+
+            <!-- Unique Trait Section -->
+            <section class="content-section">
+                <h2>The Ultimate Bite Force</h2>
+                <p>Out of all the cat species on Earth, the jaguar has the most powerful bite relative to its size. Measuring at an astronomical estimate of up to <strong>$1500\text{ psi}$</strong> (pounds per square inch), its jaws are twice as strong as a lion’s and can deliver over $105.4\text{ kg/cm}^2$ of pressure!</p>
+                <p>This immense force allows the jaguar to employ a unique hunting method. Instead of biting the throat to suffocate its quarry like other big cats, the jaguar can bite directly through the thick, armored shells of turtles, giant caimans, and the skulls of its prey. This spectacular evolutionary trait makes it an indispensable keystone predator, keeping populations of local species healthy and balanced.</p>
+            </section>
+
+            <!-- Amazing Trivia Section (Facts Grid) -->
+            <section class="content-section">
+                <h2>Amazing Jaguar Trivia!</h2>
+                <div class="facts-grid">
+                    <div class="fact-card">
+                        <span class="fact-emoji">🖤</span>
+                        <p><strong>Melanistic Jaguars</strong> (known as black panthers) carry a genetic mutation that turns their fur dark, though you can still see their spots under bright sunlight!</p>
+                    </div>
+                    <div class="fact-card">
+                        <span class="fact-emoji">🐆</span>
+                        <p>Unlike a leopard's hollow spots, jaguar rosettes have <strong>smaller spots hidden inside them</strong>, like tiny stars painted inside golden frames.</p>
+                    </div>
+                    <div class="fact-card">
+                        <span class="fact-emoji">🐊</span>
+                        <p>They routinely hunt <strong>armored caimans</strong> (alligator relatives) in water, diving completely submerged to surprise their target from below!</p>
+                    </div>
+                </div>
+            </section>
+
+        </article>
+
+        <!-- Right Column: Sidebar Classification & Stats -->
+        <aside>
+            
+            <!-- Scientific Classification Card -->
+            <div class="aside-card">
+                <h3>Scientific Classification</h3>
+                <ul class="taxonomy-list">
+                    <li><strong>Kingdom</strong> <span>Animalia</span></li>
+                    <li><strong>Phylum</strong> <span>Chordata</span></li>
+                    <li><strong>Class</strong> <span>Mammalia</span></li>
+                    <li><strong>Order</strong> <span>Carnivora</span></li>
+                    <li><strong>Family</strong> <span>Felidae</span></li>
+                    <li><strong>Genus</strong> <span>Panthera</span></li>
+                    <li><strong>Species</strong> <span>P. onca</span></li>
+                </ul>
+            </div>
+
+            <!-- Quick Profile Card -->
+            <div class="aside-card">
+                <h3>Quick Profile</h3>
+                <ul class="profile-list">
+                    <li>
+                        <strong>Common Name</strong>
+                        <span>Jaguar</span>
+                    </li>
+                    <li>
+                        <strong>Conservation Status</strong>
+                        <span class="status-badge">Near Threatened</span>
+                    </li>
+                    <li>
+                        <strong>Primary Habitat</strong>
+                        <span>Tropical Rainforests, Wetlands, Savannas</span>
+                    </li>
+                    <li>
+                        <strong>Geographic Range</strong>
+                        <span>South & Central America (principally the Amazon Basin)</span>
+                    </li>
+                    <li>
+                        <strong>Diet Type</strong>
+                        <span>Carnivore (Opportunistic Apex Predator)</span>
+                    </li>
+                    <li>
+                        <strong>Active Period</strong>
+                        <span>Crepuscular & Nocturnal</span>
+                    </li>
+                </ul>
+            </div>
+
+        </aside>
+
+    </main>
+
+    <!-- Footer Area with Styled Interactive Form -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-info">
+                <h4>Animalandia Basecamp</h4>
+                <p>Welcome to Animalandia, a youth expedition hub designed to explore our planet's amazing kingdoms. Become an advocate for our wild feline cousins by exploring and sharing wild scientific knowledge!</p>
+                <p>Got an amazing jaguar sighting story or did you discover a fun fact to share?</p>
+                <p>Basecamp Email: <a href="mailto:taskeagle313@proton.me">taskeagle313@proton.me</a></p>
+            </div>
+            
+            <div class="footer-form">
+                <h4>Send Jaguar Basecamp Feedback ✉s</h4>
+                <form action="https://formspree.io/f/xqejnqyg" method="POST">
+                    <div class="form-group">
+                        <label for="email">Your Email Address</label>
+                        <input type="email" id="email" name="email" required placeholder="explorer@jungle.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">How can humans help protect the jaguar's shrinking rainforest habitat?</label>
+                        <textarea id="message" name="message" required placeholder="Type your ideas here..." rows="4"></textarea>
+                    </div>
+                    <button type="submit" class="form-btn">Submit Insights</button>
+                </form>
+            </div>
+        </div>
+        <div class="copyright-bar">
+            <p>&copy; 2026 ANIMALANDIA Project. All rights reserved. Created with Lumo Animalandia.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
