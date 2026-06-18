@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emperor Penguin | Animalandia JungleVerse</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Fredoka:wght@600&display=swap" rel="stylesheet">
+    
+    <!-- MathJax Setup for Beautiful LaTeX Rendering -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    
+    <style>
+        :root {
+            --jungle-green: #2e7d32d8;
+            --safari-gold: #FFC107;
+            --forest-dark: #1b5e1f;
+            --cream-light: #FFF8E1;
+            --text-dark: #212121;
+            --card-bg: #ffffff;
+            --polar-blue: #0277bd;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--cream-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            background: linear-gradient(135deg, var(--jungle-green), var(--forest-dark));
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+        }
+
+        .logo-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            font-family: 'Fredoka', sans-serif;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: rgb(255, 255, 255);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--safari-gold);
+        }
+
+        /* Dropdown Menu */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: rgba(255, 255, 255, 0.95);
+            min-width: 200px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            z-index: 1;
+            border-radius: 8px;
+            overflow: hidden;
+            top: 100%;
+            left: 0;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content a {
+            color: var(--text-dark);
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            font-weight: 400;
+        }
+
+        .dropdown-content a:hover {
+            background-color: var(--cream-light);
+            color: var(--jungle-green);
+        }
+
+        /* Penguin Hero Section with immersive Unsplash antarctic penguin image */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.65)), 
+                        url('https://images.unsplash.com/photo-1517783999520-f068d7431a60?auto=format&fit=crop&w=1200&q=80') no-repeat center/cover;
+            height: 480px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            border-bottom: 6px solid var(--safari-gold);
+        }
+
+        .hero-content {
+            padding: 1rem;
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 4.2rem;
+            color: var(--safari-gold);
+            text-shadow: 3px 3px 8px rgba(0,0,0,0.8);
+            margin-bottom: 0.5rem;
+            letter-spacing: 1px;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            font-style: italic;
+            text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
+            font-weight: 600;
+        }
+
+        /* Content Layout */
+        main {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 1.5rem;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2.5rem;
+        }
+
+        /* Main Content Styling */
+        article section {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+            border-left: 6px solid var(--polar-blue);
+        }
+
+        article h2 {
+            font-family: 'Fredoka', sans-serif;
+            color: var(--polar-blue);
+            font-size: 2rem;
+            margin-bottom: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        article p {
+            font-size: 1.1rem;
+            margin-bottom: 1.2rem;
+            color: #333;
+        }
+
+        /* Fact Cards and Badges */
+        .badge-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .badge {
+            background: var(--cream-light);
+            border: 2px solid var(--polar-blue);
+            color: var(--polar-blue);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        .infobox-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .infobox {
+            background: #fafafa;
+            border: 1px solid #eee;
+            border-radius: 10px;
+            padding: 1rem;
+            text-align: center;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.02);
+        }
+
+        .infobox-num {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--polar-blue);
+            margin-bottom: 0.2rem;
+        }
+
+        .infobox-lbl {
+            font-size: 0.85rem;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Sidebar Styling */
+        aside {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .sidebar-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+            border-top: 5px solid var(--safari-gold);
+        }
+
+        .sidebar-card h3 {
+            font-family: 'Fredoka', sans-serif;
+            color: var(--polar-blue);
+            margin-bottom: 1.2rem;
+            font-size: 1.4rem;
+            border-bottom: 2px solid var(--cream-light);
+            padding-bottom: 0.5rem;
+        }
+
+        .stat-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.75rem 0;
+            border-bottom: 1px dashed #eee;
+            font-size: 1rem;
+        }
+
+        .stat-row:last-child {
+            border: none;
+        }
+
+        .stat-label {
+            font-weight: 700;
+            color: #555;
+        }
+
+        .stat-val {
+            color: var(--text-dark);
+        }
+
+        /* Fun Facts Grid */
+        .facts-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.2rem;
+        }
+
+        .fact-item {
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+            background: var(--cream-light);
+            padding: 1.2rem;
+            border-radius: 12px;
+            border-left: 4px solid var(--safari-gold);
+        }
+
+        .fact-icon {
+            font-size: 1.8rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--forest-dark);
+            color: white;
+            text-align: center;
+            padding: 3rem 1.5rem;
+            margin-top: 5rem;
+            border-top: 5px solid var(--safari-gold);
+        }
+
+        footer p {
+            margin-bottom: 1rem;
+        }
+
+        footer a {
+            color: var(--safari-gold);
+            text-decoration: underline;
+        }
+
+        /* Footer Feedback Form */
+        .footer-form {
+            max-width: 450px;
+            margin: 2rem auto 0 auto;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .footer-form h4 {
+            font-family: 'Fredoka', sans-serif;
+            color: var(--safari-gold);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.3rem;
+            font-size: 0.9rem;
+            color: var(--cream-light);
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 0.6rem;
+            border: none;
+            border-radius: 6px;
+            font-family: inherit;
+            font-size: 0.95rem;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            height: 80px;
+        }
+
+        .form-btn {
+            background: var(--safari-gold);
+            color: var(--forest-dark);
+            font-weight: 700;
+            padding: 0.6rem 1.5rem;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: transform 0.2s, background 0.2s;
+            width: 100%;
+        }
+
+        .form-btn:hover {
+            background: #fff;
+            transform: scale(1.02);
+        }
+
+        /* Media Queries */
+        @media (max-width: 900px) {
+            main {
+                grid-template-columns: 1fr;
+            }
+            .hero h1 {
+                font-size: 3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="../index.html" class="logo">
+                <img src="https://images.unsplash.com/photo-1546182990-dffeafbe841d?auto=format&fit=crop&w=100&q=80" alt="Animalandia Logo" class="logo-img">
+                <span class="logo-text">Animalandia</span>
+            </a>
+            
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li class="dropdown">
+                    <a href="#">Categories ▾</a>
+                    <div class="dropdown-content">
+                        <a href="../categories/felines.html">Felines</a>
+                        <a href="../categories/canines.html">Canines</a>
+                        <a href="../categories/birds.html">Birds</a>
+                        <a href="../categories/reptiles.html">Reptiles</a>
+                    </div>
+                </li>
+                <li><a href="#">Stories</a></li>
+                <li><a href="#">About</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Banner with breathtaking Antarctic landscape -->
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Emperor Penguin</h1>
+            <p>Aptenodytes forsteri • Sovereign of the Frozen Deep</p>
+        </div>
+    </header>
+
+    <!-- Main Content Grid -->
+    <main>
+        
+        <!-- Left Column: Rich Content Sections -->
+        <article>
+            
+            <section id="introduction">
+                <h2>🐧 Introduction</h2>
+                <div class="badge-list">
+                    <span class="badge">Marine Glider</span>
+                    <span class="badge">Flightless Bird</span>
+                    <span class="badge">Extreme Survivor</span>
+                </div>
+                <p>
+                    The <strong>Emperor Penguin</strong> is the tallest and heaviest of all living penguin species, endemic to the frozen wilderness of Antarctica. Standing at roughly $115\text{ to }122\text{ cm}$ in height, these majestic birds are beautifully adapted to survive in some of the harshest environments on Earth.
+                </p>
+                <p>
+                    Though they are technically birds, Emperor Penguins cannot fly through the air. Instead, they have evolved highly specialized flat, stiff wings that function as powerful flippers, allowing them to "fly" underwater with unmatched speed and agility.
+                </p>
+
+                <!-- Core Biological Metrics -->
+                <div class="infobox-grid">
+                    <div class="infobox">
+                        <div class="infobox-num">40 kg</div>
+                        <div class="infobox-lbl">Avg Weight</div>
+                    </div>
+                    <div class="infobox">
+                        <div class="infobox-num">535 m</div>
+                        <div class="infobox-lbl">Max Dive Depth</div>
+                    </div>
+                    <div class="infobox">
+                        <div class="infobox-num">22 min</div>
+                        <div class="infobox-lbl">Breath Hold</div>
+                    </div>
+                    <div class="infobox">
+                        <div class="infobox-num">20 yrs</div>
+                        <div class="infobox-lbl">Wild Lifespan</div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="underwater-gliding">
+                <h2>🌊 Masters of the Ocean Depths</h2>
+                <p>
+                    While land-dwelling creatures struggle with the cold, Emperor Penguins thrive in icy waters. They are elite deep-sea divers, hunting for krill, fish, and squid far below the frozen surface.
+                </p>
+                <p>
+                    <strong>Aeronautic Bodies:</strong> To handle the crushing pressure of deep dives, penguins have solid bones rather than hollow, air-filled bones like flying birds. Their heart rates slow down from $180\text{ bpm}$ to as low as $15\text{ bpm}$ to conserve oxygen during deep foraging runs.
+                </p>
+                <p>
+                    <strong>Incredible Depth:</strong> Emperor Penguins have been recorded diving to depths of up to $535\text{ meters}$ ($1,755\text{ feet}$). That is deeper than any other bird on the planet!
+                </p>
+            </section>
+
+            <section id="antarctic-survivors">
+                <h2>❄️ Defeating the Deep Freeze</h2>
+                <p>
+                    Emperor Penguins breed during the dark Antarctic winter, when temperatures drop below $-40^\circ\text{C}$ ($-40^\circ\text{F}$) and icy blizzards reach speeds of up to $200\text{ km/h}$.
+                </p>
+                <p>
+                    To withstand the biting cold, they rely on a combination of physiological and social mechanisms:
+                </p>
+                <p>
+                    <strong>The Huddle:</strong> To preserve warmth and shield individuals from freezing winds, thousands of male penguins pack tightly together in a large rotating group called a *huddle*. Penguins on the freezing outside slowly cycle into the warm center, sharing the cold duty equally.
+                </p>
+                <p>
+                    <strong>Natural Insulation:</strong> They possess four layers of scale-like feathers, which overlap to create an impenetrable windproof and waterproof shield. Below their skin lies a thick insulating layer of blubber up to $3\text{ cm}$ deep.
+                </p>
+            </section>
+
+            <section id="amazing-facts">
+                <h2>✨ Amazing Penguin Trivia</h2>
+                <div class="facts-grid">
+                    <div class="fact-item">
+                        <span class="fact-icon">🥚</span>
+                        <div>
+                            <strong>Dads of the Year:</strong> Male Emperor Penguins incubate a single egg on top of their feet, covered by a warm fold of feathered skin called a *brood pouch*. They stand in the freezing dark for up to $65\text{ days}$ without eating a single bite of food until the chick hatches!
+                        </div>
+                    </div>
+                    <div class="fact-item">
+                        <span class="fact-icon">🚀</span>
+                        <div>
+                            <strong>Ocean Rocket Launchers:</strong> When returning to land, penguins swim rapidly toward the surface and release tiny air bubbles trapped in their feathers. This reduces drag and shoots them out of the water like a rocket, landing safely on the ice.
+                        </div>
+                    </div>
+                    <div class="fact-item">
+                        <span class="fact-icon">🖤</span>
+                        <div>
+                            <strong>Perfect Camouflage:</strong> Penguins feature "countershading." From below, their white bellies blend with the bright surface water. From above, their dark backs match the deep, dark ocean floor, keeping them invisible to predators.
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </article>
+
+        <!-- Right Column: Sidebar / Classification & Stats -->
+        <aside>
+            
+            <!-- Scientific Classification -->
+            <div class="sidebar-card">
+                <h3>Scientific Classification</h3>
+                
+                <div class="stat-row">
+                    <span class="stat-label">Kingdom</span>
+                    <span class="stat-val">Animalia</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">Phylum</span>
+                    <span class="stat-val">Chordata</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">Class</span>
+                    <span class="stat-val">Aves</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">Order</span>
+                    <span class="stat-val">Sphenisciformes</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">Family</span>
+                    <span class="stat-val">Spheniscidae</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">Genus</span>
+                    <span class="stat-val">Aptenodytes</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">Species</span>
+                    <span class="stat-val">A. forsteri</span>
+                </div>
+            </div>
+
+            <!-- Quick Profile Stats -->
+            <div class="sidebar-card">
+                <h3>Quick Profile</h3>
+                
+                <div class="stat-row">
+                    <span class="stat-label">Common Name</span>
+                    <span class="stat-val">Emperor Penguin</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">Conservation Status</span>
+                    <span class="stat-val" style="color: #e65100; font-weight: bold;">Near Threatened (IUCN)</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">Habitat</span>
+                    <span class="stat-val">Antarctic Ice & Oceans</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">Geographic Range</span>
+                    <span class="stat-val">Antarctic Continent</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">Diet Type</span>
+                    <span class="stat-val">Carnivore (Piscivore)</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">Active Period</span>
+                    <span class="stat-val">Diurnal & Crepuscular</span>
+                </div>
+            </div>
+
+        </aside>
+
+    </main>
+
+    <!-- Footer Area -->
+    <footer>
+        <p>&copy; 2026 ANIMALANDIA Project. All rights reserved.</p>
+        <p>Created with Lumo Animalandia.</p>
+        <p>Contact us: <a href="mailto:taskeagle313@proton.me">taskeagle313@proton.me</a></p>
+        
+        <!-- Feedback Form -->
+        <div class="footer-form">
+            <h4>Send Polar Feedback ✉️</h4>
+            <form action="https://formspree.io/f/xqejnqyg" method="POST">
+                <div class="form-group">
+                    <label for="email">Your Email Address</label>
+                    <input type="email" id="email" name="email" required placeholder="explorer@antarctica.com">
+                </div>
+                <div class="form-group">
+                    <label for="message">What did you learn about these flightless divers today?</label>
+                    <textarea id="message" name="message" required placeholder="Type your message here..."></textarea>
+                </div>
+                <button type="submit" class="form-btn">Submit Insights</button>
+            </form>
+        </div>
+    </footer>
+
+</body>
+</html>
